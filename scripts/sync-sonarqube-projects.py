@@ -12,7 +12,7 @@ if 'SONAR_TOKEN' not in os.environ:
 
 TOKEN = os.environ['SONAR_TOKEN']
 HEADERS = {
-    'Authorization': f'Bearer {TOKEN}:',
+    'Authorization': f'Bearer abeda4a3828d84c52fd57a6ded82322e558062c3',
     'Content-Type': 'application/x-www-form-urlencoded'
 }
 
