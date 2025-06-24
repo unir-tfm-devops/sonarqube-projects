@@ -40,7 +40,7 @@ def project_exists(key):
             print(f"Response status: {resp.status_code}")
             return False
             
-        return any(p["key"] == key for p in data.get("components", []))
+        return any(p["key"] == "unir-tfm-devops_" + key for p in data.get("components", []))
         
     except requests.exceptions.RequestException as e:
         print(f"Request failed for {key}: {e}")
