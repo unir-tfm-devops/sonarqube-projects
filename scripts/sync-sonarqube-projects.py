@@ -22,9 +22,6 @@ def project_exists(key):
         params = {"projects": "unir-tfm-devops_" + key, "organization": "unir-tfm-devops"}
         
         print(f"Checking if project exists: {key}")
-        print(f"API URL: {url}")
-        print(f"Headers: {HEADERS}")
-        
         resp = requests.get(url, params=params, headers=HEADERS)
         
         # Check if the request was successful
