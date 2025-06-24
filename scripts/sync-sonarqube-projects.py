@@ -12,14 +12,14 @@ if 'SONAR_TOKEN' not in os.environ:
 
 TOKEN = os.environ['SONAR_TOKEN']
 HEADERS = {
-    'Authorization': f'Bearer abeda4a3828d84c52fd57a6ded82322e558062c3',
+    'Authorization': f'Bearer {TOKEN}',
     'Content-Type': 'application/x-www-form-urlencoded'
 }
 
 def project_exists(key):
     try:
         url = f"{SONAR_URL}/api/projects/search"
-        params = {"projects": key, "organization": "unir-tfm-devops"}
+        params = {"projects": "unir-tfm-devops_" + key, "organization": "unir-tfm-devops"}
         
         print(f"Checking if project exists: {key}")
         print(f"API URL: {url}")
