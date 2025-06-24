@@ -1,0 +1,26 @@
+name: Sync SonarQube Projects
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "sonarqube-projects.yaml"
+
+jobs:
+  sync-projects:
+    name: Sync SonarQube Projects
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout config repo
+        uses: actions/checkout@v3
+
+      - name: Install Python and dependencies
+        run: |
+          pip install requests pyyaml
+
+      - name: Run sync script
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          python scripts/sync_sonarqube_projects.py
