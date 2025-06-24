@@ -1,6 +1,7 @@
 name: Sync SonarQube Projects
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -23,4 +24,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          python scripts/sync_sonarqube_projects.py
+          python scripts/sync-sonarqube-projects.py
