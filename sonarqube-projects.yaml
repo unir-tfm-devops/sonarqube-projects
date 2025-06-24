@@ -1,5 +1,3 @@
 projects:
   - key: "spring-boot-template"
     visibility: "public"
-  - key: "products-search-api"
-    visibility: "public"
