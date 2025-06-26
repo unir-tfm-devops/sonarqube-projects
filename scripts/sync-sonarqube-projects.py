@@ -68,7 +68,9 @@ def create_project(key, visibility="public"):
             "project": "unir-tfm-devops_" + key,
             "organization": "unir-tfm-devops",
             "name": key,
-            "visibility": visibility
+            "visibility": visibility,
+            "newCodeDefinitionType": "previous_version",
+            "newCodeDefinitionValue": "previous_version"
         }
         resp = requests.post(f"{SONAR_URL}/api/projects/create", headers=HEADERS, data=data)
         
