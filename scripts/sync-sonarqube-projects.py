@@ -48,7 +48,7 @@ def set_main_branch(key):
     try:
         data = {
             "project": "unir-tfm-devops_" + key,
-            "mainBranch": "main"
+            "name": "main"
         }
         resp = requests.post(f"{SONAR_URL}/api/project_branches/rename", headers=HEADERS, data=data)
         
