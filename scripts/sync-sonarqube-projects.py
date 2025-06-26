@@ -52,7 +52,7 @@ def set_main_branch(key):
         }
         resp = requests.post(f"{SONAR_URL}/api/project_branches/rename", headers=HEADERS, data=data)
         
-        if resp.status_code == 200:
+        if resp.status_code in [200, 204]:
             print(f"Set main branch to 'main' for project: {key}")
         else:
             print(f"Failed to set main branch for {key}: {resp.status_code}")
