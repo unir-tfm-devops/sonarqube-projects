@@ -43,6 +43,25 @@ def project_exists(key):
         print(f"Request failed for {key}: {e}")
         return False
 
+def set_main_branch(key):
+    """Set the main branch for a SonarQube project"""
+    try:
+        data = {
+            "project": "unir-tfm-devops_" + key,
+            "mainBranch": "main"
+        }
+        resp = requests.post(f"{SONAR_URL}/api/project_branches/rename", headers=HEADERS, data=data)
+        
+        if resp.status_code == 200:
+            print(f"Set main branch to 'main' for project: {key}")
+        else:
+            print(f"Failed to set main branch for {key}: {resp.status_code}")
+            print(f"Response: {resp.text}")
+            
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed while setting main branch for {key}: {e}")
+
+
 def create_project(key, visibility="public"):
     try:
         data = {
@@ -55,6 +74,8 @@ def create_project(key, visibility="public"):
         
         if resp.status_code == 200:
             print(f"Created project: {key}")
+            # Set the main branch to 'main' after project creation
+            set_main_branch(key)
         else:
             print(f"Failed to create {key}: {resp.status_code}")
             print(f"Response: {resp.text}")
