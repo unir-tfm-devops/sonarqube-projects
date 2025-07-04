@@ -1,3 +1,6 @@
 projects:
   - key: "spring-boot-template"
     visibility: "public"
+
+  - key: "products-service"
+    visibility: "public"
