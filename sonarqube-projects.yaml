@@ -3,3 +3,6 @@ projects:
     visibility: "public"
   - key: "nodejs-template"
     visibility: "public"
+
+  - key: "products-service"
+    visibility: "public"
