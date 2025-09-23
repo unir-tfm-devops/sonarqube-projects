@@ -3,6 +3,3 @@ projects:
     visibility: "public"
   - key: "nodejs-template"
     visibility: "public"
-
-  - key: "bank-service"
-    visibility: "public"
